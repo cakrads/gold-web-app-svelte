@@ -76,7 +76,6 @@
 			: 'bg-yellow-100 focus:ring-yellow-400 ring-offset-white'} relative inline-flex flex-shrink-0 h-5 w-9 border-2 border-transparent rounded-full cursor-pointer transition-colors ease-in-out duration-200 focus:outline-none focus:ring-2 focus:ring-offset-2 m-4"
 		class:hidden
 		type="button"
-		aria-checked={dark}
 		on:click={toggle}
 	>
 		<span class="sr-only">Toggle Dark Mode</span>
