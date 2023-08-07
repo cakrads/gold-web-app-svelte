@@ -1,4 +1,6 @@
 <script lang="ts">
+	export let className = '';
+
 	type TWidth = 'sm' | 'full';
 	export let width: TWidth = 'full';
 
@@ -15,7 +17,7 @@
 </script>
 
 <div
-	class={`${widthClasses[width]} block bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700`}
+	class={`${widthClasses[width]} block bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700 ${className}`}
 >
 	<slot />
 </div>
