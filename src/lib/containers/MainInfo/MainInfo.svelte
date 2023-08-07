@@ -1,6 +1,7 @@
 <script lang="ts">
 	import Card from '$lib/components/atoms/card/card.svelte';
 	import Text from '$lib/components/atoms/typography/text.svelte';
+	import { formatRupiah } from '$lib/utils/currency';
 
 	type TUpdatedPrice = {
 		type: 'up' | 'down';
@@ -15,12 +16,12 @@
 	export let updatedDate = '4 Agustus 2023, 10.00';
 	export let updatedPrice: TUpdatedPrice = {
 		type: 'down',
-		price: -5000,
+		price: formatRupiah(-5000),
 		color: 'text-red-500'
 	};
 	export let price: TPrice = {
-		sell: 1067000,
-		buyback: 953000
+		sell: formatRupiah(1067000),
+		buyback: formatRupiah(953000)
 	};
 </script>
 
