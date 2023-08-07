@@ -69,8 +69,7 @@
 				'text-white bg-yellow-400 hover:bg-yellow-500 focus:ring-4 focus:ring-yellow-300 dark:focus:ring-yellow-900'
 		},
 		gradient: {
-			primary:
-				'text-main-text-light bg-gradient-to-br from-primary to-secondary hover:bg-gradient-to-bl focus:ring-primary dark:focus:ring-primary'
+			primary: 'text-main-text-light gradient-primary hover:gradient-primary-hover'
 		}
 	};
 

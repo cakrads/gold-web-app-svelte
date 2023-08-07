@@ -6,3 +6,12 @@ body {
 	transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
 	@apply bg-white dark:bg-[#37373B] text-main-text-light dark:text-main-text-dark;
 }
+
+@layer components {
+	.gradient-primary {
+		background: linear-gradient(270deg, #ecd084 0%, #e8be71 100%);
+	}
+	.gradient-primary-hover {
+		background: linear-gradient(270deg, #e8be71 0%, #ecd084 100%);
+	}
+}
