@@ -12,17 +12,17 @@
 	}
 
 	let widthClasses: WidthClassess = {
-		sm: 'max-w-sm p-4',
-		full: 'w-full p-6'
+		sm: 'max-w-sm',
+		full: 'w-full'
 	};
 </script>
 
 <div
 	class={twMerge(
 		`${widthClasses[width]} 
-		block border rounded-lg shadow 
-	bg-white  border-gray-200 hover:bg-gray-100 
-	dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700 
+		block border rounded-[20px] shadow
+	bg-white  border-primary hover:bg-gray-100 
+	dark:bg-main-bg-dark dark:border-primary dark:hover:bg-gray-700 
 		${className}`
 	)}
 >

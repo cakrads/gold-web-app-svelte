@@ -3,7 +3,7 @@
 	import Theme from './theme.svelte';
 </script>
 
-<nav class="flex justify-between h-16 px-6">
+<nav class="flex justify-between h-16 px-5">
 	<div class="flex">
 		<div class="flex-shrink-0 flex items-center">
 			<Text color="primary" type="title">GD</Text>
