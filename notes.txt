@@ -1,0 +1,16 @@
+
+
+di Home bakal ada Card
+isinya:
+ - Harga Hari ini:
+ - Tanggal
+ - last update
+ - Harga pergram
+ - naik atau turun dari kemarin
+
+Mock:
+https://www.figma.com/file/FXlO5b3PQPhCzWth2s1tAG/GOLD-Today?type=design&node-id=326-793&mode=design&t=p6OWTA0FzbYQ2MeE-0
+ 
+ contoh svelte:
+ - https://github.com/navneetsharmaui/sveltekit-starter/blob/main/src/routes/index.svelte
+ 
