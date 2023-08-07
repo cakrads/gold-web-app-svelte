@@ -16,10 +16,8 @@
 		| 'secondary';
 	export let color: TColor = 'normal';
 
-	type TGradient = '' | 'normal' | 'primary' | 'secondary';
-	export let gradient: TGradient = '';
-
 	export let outline = false;
+	export let gradient = false;
 	export let className = '';
 
 	const config = {
@@ -36,11 +34,11 @@
 		},
 		outline: {
 			normal:
-				'text-gray-900 bg-white border border-gray-200 hover:bg-gray-100 hover:text-blue-700 focus:ring-gray-200 dark:focus:ring-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700',
+				'text-gray-900 bg-white border border-gray-200 hover:bg-gray-100 focus:ring-gray-200 dark:focus:ring-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:bg-gray-700',
 			primary:
-				'text-blue-700 hover:text-white border border-blue-700 hover:bg-blue-800  focus:ring-blue-300  dark:border-blue-500 dark:text-blue-500 dark:hover:text-white dark:hover:bg-blue-500 dark:focus:ring-blue-800',
+				'text-main-text-light hover:text-base-text-light border border-primary hover:bg-primary focus:ring-secondary  dark:border-primary dark:text-main-text-dark dark:hover:text-base-text-light dark:hover:bg-secondary dark:focus:ring-secondary',
 			secondary:
-				'text-purple-700 hover:text-white border border-purple-700 hover:bg-purple-800  focus:ring-purple-300  dark:border-purple-400 dark:text-purple-400 dark:hover:text-white dark:hover:bg-purple-500 dark:focus:ring-purple-900',
+				'text-main-text-light hover:text-base-text-light border border-secondary hover:bg-secondary focus:ring-primary  dark:border-primary dark:text-main-text-dark dark:hover:text-base-text-light dark:hover:bg-primary dark:focus:ring-primary',
 			dark: 'text-gray-900 hover:text-white border border-gray-800 hover:bg-gray-900  focus:ring-gray-300  dark:border-gray-600 dark:text-gray-400 dark:hover:text-white dark:hover:bg-gray-600 dark:focus:ring-gray-800',
 			light:
 				'text-gray-900 bg-white border border-gray-300 hover:bg-gray-100 focus:ring-4 focus:ring-gray-200 dark:bg-gray-800 dark:text-white dark:border-gray-600 dark:hover:bg-gray-700 dark:hover:border-gray-600 dark:focus:ring-gray-700',
@@ -53,11 +51,11 @@
 		},
 		color: {
 			normal:
-				'text-gray-900 bg-white border border-gray-200 hover:bg-gray-100 hover:text-blue-700 focus:ring-gray-200 dark:focus:ring-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700',
+				'text-gray-900 bg-white border border-gray-200 hover:bg-gray-100 focus:ring-gray-200 dark:focus:ring-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:bg-gray-700',
 			primary:
-				'text-white focus:ring-blue-300 bg-blue-700 hover:bg-blue-800 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800',
+				'text-main-text-light focus:ring-secondary bg-primary hover:bg-secondary dark:bg-primary dark:hover:bg-secondary dark:focus:ring-secondary',
 			secondary:
-				'text-white bg-purple-700 hover:bg-purple-800 focus:ring-4 focus:ring-purple-300 text-sm px-5 py-2.5 mb-2 dark:bg-purple-600 dark:hover:bg-purple-700 dark:focus:ring-purple-900',
+				'text-main-text-light focus:ring-primary bg-secondary hover:bg-primary dark:bg-secondary dark:hover:bg-primary dark:focus:ring-primary',
 			dark: 'text-white bg-gray-800 hover:bg-gray-900 focus:ring-4 focus:ring-gray-300 dark:bg-gray-800 dark:hover:bg-gray-700 dark:focus:ring-gray-700 dark:border-gray-700',
 			light:
 				'text-gray-900 bg-white border border-gray-300 hover:bg-gray-100 focus:ring-4 focus:ring-gray-200 dark:bg-gray-800 dark:text-white dark:border-gray-600 dark:hover:bg-gray-700 dark:hover:border-gray-600 dark:focus:ring-gray-700',
@@ -69,25 +67,14 @@
 				'text-white bg-yellow-400 hover:bg-yellow-500 focus:ring-4 focus:ring-yellow-300 dark:focus:ring-yellow-900'
 		},
 		gradient: {
-			'': '',
-			normal:
-				'text-white bg-gradient-to-r from-purple-500 to-pink-500 hover:bg-gradient-to-l focus:ring-purple-200 dark:focus:ring-purple-800',
 			primary:
-				'text-white bg-gradient-to-br from-purple-600 to-blue-500 hover:bg-gradient-to-bl focus:ring-blue-300 dark:focus:ring-blue-800',
-			secondary:
-				'text-white bg-gradient-to-r from-cyan-500 to-blue-500 hover:bg-gradient-to-bl focus:ring-cyan-300 dark:focus:ring-cyan-800'
+				'text-main-text-light bg-gradient-to-br from-primary to-secondary hover:bg-gradient-to-bl focus:ring-primary dark:focus:ring-primary'
 		}
 	};
 
 	const classes = `
     ${config.size[size]}
-    ${
-			outline
-				? config.outline[color]
-				: gradient === ''
-				? config.color[color]
-				: config.gradient[gradient]
-		}
+    ${outline ? config.outline[color] : gradient ? config.gradient['primary'] : config.color[color]}
     ${config.variant[variant]}
     ${className}
   `;
