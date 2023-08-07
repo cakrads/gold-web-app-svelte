@@ -1,4 +1,5 @@
 <script lang="ts">
+	import { twMerge } from 'tailwind-merge';
 	export let className = '';
 
 	type TWidth = 'sm' | 'full';
@@ -17,7 +18,13 @@
 </script>
 
 <div
-	class={`${widthClasses[width]} block bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700 ${className}`}
+	class={twMerge(
+		`${widthClasses[width]} 
+		block border rounded-lg shadow 
+	bg-white  border-gray-200 hover:bg-gray-100 
+	dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700 
+		${className}`
+	)}
 >
 	<slot />
 </div>

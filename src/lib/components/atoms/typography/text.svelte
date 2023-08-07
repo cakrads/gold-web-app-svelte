@@ -1,4 +1,6 @@
 <script lang="ts">
+	import { twMerge } from 'tailwind-merge';
+
 	export let className = '';
 	export let type: 'default' | 'title' | 'subtitle' = 'default';
 	export let color:
@@ -54,7 +56,6 @@
 	};
 </script>
 
-<!-- Apply the selected typography class -->
-<p class={`${typographyClasses[type]} ${colorClasses[color]} ${className}`}>
+<p class={twMerge(`${typographyClasses[type]} ${colorClasses[color]} ${className}`)}>
 	<slot />
 </p>

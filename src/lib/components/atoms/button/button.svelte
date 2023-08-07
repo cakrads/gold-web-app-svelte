@@ -1,4 +1,6 @@
 <script lang="ts">
+	import { twMerge } from 'tailwind-merge';
+
 	type TVariant = 'normal' | 'pills';
 	export let variant: TVariant = 'normal';
 
@@ -72,12 +74,12 @@
 		}
 	};
 
-	const classes = `
+	const classes = twMerge(`
     ${config.size[size]}
     ${outline ? config.outline[color] : gradient ? config.gradient['primary'] : config.color[color]}
     ${config.variant[variant]}
     ${className}
-  `;
+  `);
 </script>
 
 <button class={classes}>
