@@ -4,6 +4,8 @@
 		| 'default'
 		| 'primary'
 		| 'secondary'
+		| 'main'
+		| 'base'
 		| 'success'
 		| 'danger'
 		| 'warning'
@@ -22,6 +24,8 @@
 		default: string;
 		primary: string;
 		secondary: string;
+		main: string;
+		base: string;
 		success: string;
 		danger: string;
 		warning: string;
@@ -46,9 +50,11 @@
 	};
 
 	let colorClasses: ColorClasses = {
-		default: 'text-slate-900',
-		primary: 'text-indigo-700 dark:text-indigo-500',
-		secondary: 'text-blue-700 dark:text-blue-500',
+		default: 'text-main-text-light dark:text-main-text-dark',
+		primary: 'text-primary',
+		secondary: 'text-secondary',
+		main: 'text-main-text-light dark:text-main-text-dark',
+		base: 'text-base-text-light dark:text-base-text-dark',
 		success: 'text-green-500',
 		info: 'text-sky-500',
 		danger: 'text-red-500',
