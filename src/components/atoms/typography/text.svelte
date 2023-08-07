@@ -1,4 +1,5 @@
 <script lang="ts">
+	export let className = '';
 	export let type: 'default' | 'title' | 'subtitle' = 'default';
 	export let color:
 		| 'default'
@@ -54,6 +55,6 @@
 </script>
 
 <!-- Apply the selected typography class -->
-<p class={`${typographyClasses[type]} ${colorClasses[color]}`}>
+<p class={`${typographyClasses[type]} ${colorClasses[color]} ${className}`}>
 	<slot />
 </p>
