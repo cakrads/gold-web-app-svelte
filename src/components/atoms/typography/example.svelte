@@ -1,5 +1,5 @@
 <script>
-	import Text from './index.svelte';
+	import Text from './text.svelte';
 </script>
 
 <Text>This is a Default Text</Text>

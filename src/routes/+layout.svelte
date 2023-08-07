@@ -4,7 +4,7 @@
 
 <script lang="ts">
 	import Theme from '$lib/Theme.svelte';
-	import Text from './../components/typography/index.svelte';
+	import Text from '$components/atoms/typography/text.svelte';
 </script>
 
 <section

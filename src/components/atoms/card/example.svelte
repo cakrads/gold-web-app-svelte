@@ -1,5 +1,5 @@
 <script>
-	import Card from './index.svelte';
+	import Card from './card.svelte';
 	import CardTitle from './card.title.svelte';
 	import CardContent from './card.content.svelte';
 </script>

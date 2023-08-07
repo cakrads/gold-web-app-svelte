@@ -1,5 +1,5 @@
 <script>
-	import Button from './index.svelte';
+	import Button from './button.svelte';
 </script>
 
 <Button color="normal">Color Normal</Button><br /><br />
