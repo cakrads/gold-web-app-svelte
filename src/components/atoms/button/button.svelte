@@ -19,8 +19,8 @@
 	type TGradient = '' | 'normal' | 'primary' | 'secondary';
 	export let gradient: TGradient = '';
 
-	export let outline: boolean = false;
-	export let className: string = '';
+	export let outline = false;
+	export let className = '';
 
 	const config = {
 		size: {

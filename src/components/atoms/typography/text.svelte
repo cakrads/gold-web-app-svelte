@@ -32,15 +32,6 @@
 		info: string;
 	}
 
-	interface SizeClasses {
-		[key: string]: string;
-		xs: string;
-		sm: string;
-		md: string;
-		lg: string;
-		xl: string;
-	}
-
 	let typographyClasses: TypographyClasses = {
 		default: 'text-base',
 		title: 'text-3xl font-bold',
