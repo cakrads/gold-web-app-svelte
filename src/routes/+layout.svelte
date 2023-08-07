@@ -3,7 +3,7 @@
 </script>
 
 <script lang="ts">
-	import Nav from '$components/nav/nav.svelte';
+	import Nav from '$lib/components/nav/nav.svelte';
 </script>
 
 <div

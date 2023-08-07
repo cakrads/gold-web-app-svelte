@@ -1,8 +1,8 @@
 <script>
-	import Text from '$components/atoms/typography/text.svelte';
-	import TextExample from '$components/atoms/typography/example.svelte';
-	import ButtonExample from '$components/atoms/button/example.svelte';
-	import CardExample from '$components/atoms/card/example.svelte';
+	import Text from '$lib/components/atoms/typography/text.svelte';
+	import TextExample from '$lib/components/atoms/typography/example.svelte';
+	import ButtonExample from '$lib/components/atoms/button/example.svelte';
+	import CardExample from '$lib/components/atoms/card/example.svelte';
 </script>
 
 <section class="p-3">

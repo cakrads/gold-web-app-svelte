@@ -1,6 +1,6 @@
 <script>
-	import Text from '$components/atoms/typography/text.svelte';
-	import Theme from '$lib/Theme.svelte';
+	import Text from '$lib/components/atoms/typography/text.svelte';
+	import Theme from './theme.svelte';
 </script>
 
 <nav class="flex justify-between h-16 px-6">
