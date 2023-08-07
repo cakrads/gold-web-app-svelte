@@ -6,7 +6,7 @@
 	import Nav from '$components/nav/nav.svelte';
 </script>
 
-<section
+<div
 	class="
 	my-0 mx-auto min-h-screen max-w-screen-sm
 	bg-main-bg-light dark:bg-black text-main-text-light dark:text-white
@@ -17,4 +17,4 @@
 	<main>
 		<slot />
 	</main>
-</section>
+</div>
