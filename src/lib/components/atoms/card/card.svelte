@@ -22,7 +22,7 @@
 		`${widthClasses[width]} 
 		block border rounded-[20px] shadow
 	bg-white  border-primary hover:bg-gray-100 
-	dark:bg-main-bg-dark dark:border-primary dark:hover:bg-gray-700 
+	dark:bg-main-bg-dark dark:border-primary dark:hover:bg-black 
 		${className}`
 	)}
 >
