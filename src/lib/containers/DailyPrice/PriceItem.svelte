@@ -12,7 +12,7 @@
 
 <div
 	class={twMerge(
-		`flex justify-between py-4 px-3 hover:bg-main-bg-light hover:dark:bg-black ${className}`
+		`flex justify-between py-4 px-5 hover:bg-main-bg-light hover:dark:bg-black ${className}`
 	)}
 >
 	<Text color="main">{item.label}</Text>

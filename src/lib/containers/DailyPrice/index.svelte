@@ -61,8 +61,8 @@
 
 <section class="px-5">
 	<Text type="subtitle" color="main" colorDark="primary" className="mb-3">Harga Emas Hari Ini</Text>
-	<Card className="py-6 px-5">
-		<div class="flex justify-between mb-2 px-3">
+	<Card className="py-6">
+		<div class="flex justify-between mb-2 px-5">
 			<Text color="main" colorDark="primary">Berat</Text>
 			<Text color="main" colorDark="primary">Harga Dasar (Rp)</Text>
 		</div>
