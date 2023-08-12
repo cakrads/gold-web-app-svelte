@@ -1,6 +1,7 @@
 <script lang="ts">
 	import { twMerge } from 'tailwind-merge';
 	export let className = '';
+	export let hover: boolean = false;
 
 	type TWidth = 'sm' | 'full';
 	export let width: TWidth = 'full';
@@ -21,8 +22,8 @@
 	class={twMerge(
 		`${widthClasses[width]} 
 		block border rounded-[20px] shadow
-	bg-white  border-primary hover:bg-gray-100 
-	dark:bg-main-bg-dark dark:border-primary dark:hover:bg-black 
+	bg-white  border-primary ${hover ? 'hover:bg-gray-100' : ''} 
+	dark:bg-main-bg-dark dark:border-primary ${hover ? 'dark:hover:bg-black' : ''} 
 		${className}`
 	)}
 >
