@@ -1,0 +1,1 @@
+ALTER TABLE `main_info` MODIFY COLUMN `date` int NOT NULL;
