@@ -12,7 +12,12 @@
 		"lint": "prettier --plugin-search-dir . --check . && eslint .",
 		"format": "prettier --plugin-search-dir . --write .",
 		"test:integration": "playwright test",
-		"test:unit": "vitest"
+		"test:unit": "vitest",
+		"db:generate": "drizzle-kit generate:mysql",
+		"db:migrate": "tsm ./src/lib/db/migrate.ts",
+		"db:push": "drizzle-kit push:mysql",
+		"db:up": "drizzle-kit up:mysql",
+		"db:studio": "pnpm drizzle-kit studio"
 	},
 	"devDependencies": {
 		"@playwright/test": "^1.28.1",
@@ -21,6 +26,7 @@
 		"@typescript-eslint/eslint-plugin": "^5.45.0",
 		"@typescript-eslint/parser": "^5.45.0",
 		"autoprefixer": "^10.4.14",
+		"drizzle-kit": "^0.19.12",
 		"eslint": "^8.28.0",
 		"eslint-config-prettier": "^8.5.0",
 		"eslint-plugin-svelte": "^2.30.0",
@@ -31,9 +37,16 @@
 		"svelte-check": "^3.4.3",
 		"tailwindcss": "^3.3.3",
 		"tslib": "^2.4.1",
+		"tsm": "^2.3.0",
 		"typescript": "^5.0.0",
+		"undici": "^5.23.0",
 		"vite": "^4.4.2",
 		"vitest": "^0.32.2"
 	},
-	"type": "module"
+	"type": "module",
+	"dependencies": {
+		"@planetscale/database": "^1.10.0",
+		"dotenv": "^16.3.1",
+		"drizzle-orm": "^0.28.2"
+	}
 }
