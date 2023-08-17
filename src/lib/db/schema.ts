@@ -7,8 +7,10 @@ export const mainInfo = mysqlTable('main_info', {
   date: int('date').unique().notNull(),
   sellPrice: decimal('sell_price', { precision: 15, scale: 2 }).notNull(),
   buybackPrice: decimal('buyback_price', { precision: 15, scale: 2 }).notNull(),
+  changePrice: decimal('change_price', { precision: 15, scale: 2 }).notNull(),
   sellPriceEn: decimal('sell_price_en', { precision: 15, scale: 2 }).notNull(),
   buybackPriceEn: decimal('buyback_price_en', { precision: 15, scale: 2 }).notNull(),
+  changePriceEn: decimal('change_price_en', { precision: 15, scale: 2 }).notNull(),
 }, (table) => {
   return {
     dateIdx: index("date_idx").on(table.date),
@@ -21,8 +23,10 @@ export const dailyPrice = mysqlTable('daily_price', {
   date: int('date').unique().notNull(),
   sellPrice: decimal('sell_price', { precision: 15, scale: 2 }).notNull(),
   buybackPrice: decimal('buyback_price', { precision: 15, scale: 2 }).notNull(),
+  changePrice: decimal('change_price', { precision: 15, scale: 2 }).notNull(),
   sellPriceEn: decimal('sell_price_en', { precision: 15, scale: 2 }).notNull(),
   buybackPriceEn: decimal('buyback_price_en', { precision: 15, scale: 2 }).notNull(),
+  changePriceEn: decimal('change_price_en', { precision: 15, scale: 2 }).notNull(),
 }, (table) => {
   return {
     dateIdx: index("date_idx").on(table.date),
