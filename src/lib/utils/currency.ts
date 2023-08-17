@@ -1,3 +1,15 @@
+export const formatCurrency = (
+  value: number,
+  type: 'id-ID' | 'en-US' = "id-ID",
+  options?: Intl.NumberFormatOptions
+): string => {
+  if (type === "id-ID") {
+    return formatRupiah(value, options);
+  }
+
+  return formatDollar(value, options);
+}
+
 export const formatRupiah = (
   value: number,
   options?: Intl.NumberFormatOptions
