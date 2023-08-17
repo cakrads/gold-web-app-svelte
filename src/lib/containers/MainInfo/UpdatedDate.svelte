@@ -1,7 +1,9 @@
 <script lang="ts">
 	import Text from '$lib/components/atoms/typography/text.svelte';
+	import { convertDate } from '$lib/utils/date';
+	import { mainInfoStore } from '$lib/stores/main-info';
 
-	export let updatedDate = '4 Agustus 2023, 10.00';
+	$: updatedDate = convertDate(+$mainInfoStore.date);
 </script>
 
 <div class="flex justify-end mb-3">
@@ -19,5 +21,7 @@
 			d="M12 6v6h4.5m4.5 0a9 9 0 11-18 0 9 9 0 0118 0z"
 		/>
 	</svg>
-	<Text color="base" className="text-sm font-medium">{updatedDate}</Text>
+	<Text color="base" className="text-sm font-medium">
+		{updatedDate}
+	</Text>
 </div>

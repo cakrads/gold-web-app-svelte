@@ -1,17 +1,16 @@
 <script lang="ts">
 	import Card from '$lib/components/atoms/card/card.svelte';
 	import Text from '$lib/components/atoms/typography/text.svelte';
-	import { formatRupiah } from '$lib/utils/currency';
+	import { formatCurrency } from '$lib/utils/currency';
+	import { mainInfoStore } from '$lib/stores/main-info';
 
-	type TPrice = {
-		sell: number | string;
-		buyback: number | string;
-	};
+	let sellPrice: string = '-';
+	let buybackPrice: string = '-';
 
-	export let price: TPrice = {
-		sell: formatRupiah(1067000),
-		buyback: formatRupiah(953000)
-	};
+	$: {
+		sellPrice = formatCurrency(+$mainInfoStore.sellPrice);
+		buybackPrice = formatCurrency(+$mainInfoStore.buybackPrice);
+	}
 </script>
 
 <div class="grid gap-4 grid-cols-2">
@@ -19,7 +18,7 @@
 		<div class="grid py-6 px-5">
 			<Text className="text-base-text-light dark:text-base-text-light font-medium">Harga Jual</Text>
 			<Text className="text-black dark:text-black text-2xl font-medium">
-				{price.sell}
+				{sellPrice}
 			</Text>
 		</div>
 	</Card>
@@ -27,7 +26,7 @@
 		<div class="grid py-6 px-5">
 			<Text color="base" className="font-medium">Harga Buyback</Text>
 			<Text className="text-2xl font-medium">
-				{price.buyback}
+				{buybackPrice}
 			</Text>
 		</div>
 	</Card>
