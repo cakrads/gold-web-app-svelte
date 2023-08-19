@@ -1,13 +1,10 @@
 <script lang="ts">
 	import Text from '$lib/components/atoms/typography/text.svelte';
-	import { formatRupiah } from '$lib/utils/currency';
 	import { twMerge } from 'tailwind-merge';
 
 	export let className: string = '';
-	export let item: {
-		label: string;
-		value: number;
-	};
+	export let label: string = '-';
+	export let value: string = '-';
 </script>
 
 <div
@@ -15,6 +12,6 @@
 		`flex justify-between py-4 px-5 hover:bg-main-bg-light hover:dark:bg-black ${className}`
 	)}
 >
-	<Text color="main">{item.label}</Text>
-	<Text color="main">{formatRupiah(item.value)}</Text>
+	<Text color="main">{label}</Text>
+	<Text color="main">{value}</Text>
 </div>
