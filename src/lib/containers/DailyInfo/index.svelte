@@ -29,14 +29,11 @@
 		}
 	};
 
-	onMount(() => {
-		fetchData();
-
-		onDestroy(() => {
-			if (controller) {
-				controller.abort();
-			}
-		});
+	onMount(fetchData);
+	onDestroy(() => {
+		if (controller) {
+			controller.abort();
+		}
 	});
 </script>
 
