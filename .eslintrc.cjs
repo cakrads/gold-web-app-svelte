@@ -26,5 +26,10 @@ module.exports = {
 				parser: '@typescript-eslint/parser'
 			}
 		}
-	]
+	],
+	rules: {
+		'no-unused-vars': 'off',
+		semi: 'error',
+		quotes: ['error', 'single', { allowTemplateLiterals: true }]
+	}
 };

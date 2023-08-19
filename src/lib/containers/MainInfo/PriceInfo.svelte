@@ -4,8 +4,8 @@
 	import { formatCurrency } from '$lib/utils/currency';
 	import { mainInfoStore } from '$lib/stores/main-info';
 
-	let sellPrice: string = '-';
-	let buybackPrice: string = '-';
+	let sellPrice = '-';
+	let buybackPrice = '-';
 
 	$: {
 		sellPrice = formatCurrency(+$mainInfoStore.sellPrice);

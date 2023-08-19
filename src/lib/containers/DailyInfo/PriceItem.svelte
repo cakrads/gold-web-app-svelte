@@ -2,9 +2,9 @@
 	import Text from '$lib/components/atoms/typography/text.svelte';
 	import { twMerge } from 'tailwind-merge';
 
-	export let className: string = '';
-	export let label: string = '-';
-	export let value: string = '-';
+	export let className = '';
+	export let label = '-';
+	export let value = '-';
 </script>
 
 <div

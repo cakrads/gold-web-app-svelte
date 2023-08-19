@@ -26,6 +26,7 @@ You can preview the production build with `pnpm run preview`.
 > To deploy your app, you may need to install an [adapter](https://kit.svelte.dev/docs/adapters) for your target environment.
 
 # Setup VS Code
+
 - Install latest VS Code
 - Install `Svelte : extensions for svelte`
 - Install `Svelte for VS Code`

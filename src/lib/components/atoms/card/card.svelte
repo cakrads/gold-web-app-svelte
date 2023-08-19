@@ -1,7 +1,7 @@
 <script lang="ts">
 	import { twMerge } from 'tailwind-merge';
 	export let className = '';
-	export let hover: boolean = false;
+	export let hover = false;
 
 	type TWidth = 'sm' | 'full';
 	export let width: TWidth = 'full';

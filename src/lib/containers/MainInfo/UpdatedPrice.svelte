@@ -4,7 +4,7 @@
 	import { mainInfoStore } from '$lib/stores/main-info';
 
 	let updatedPrice: string | number = 0;
-	let isPriceIncrease: boolean = false;
+	let isPriceIncrease = false;
 	let color: 'text-red-500' | 'text-green-500';
 
 	$: {
