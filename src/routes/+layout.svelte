@@ -4,10 +4,6 @@
 
 <script lang="ts">
 	import Nav from '$lib/components/nav/nav.svelte';
-	import { mainInfoStore } from '$lib/stores/main-info';
-
-	export let data;
-	$: mainInfoStore.set(data);
 </script>
 
 <div
