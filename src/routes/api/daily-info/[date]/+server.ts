@@ -1,6 +1,6 @@
 import DailyInfoService from '$lib/services/daily-info';
 import type { DailyInfo } from '$lib/services/daily-info';
-import { apiResponse } from '$src/lib/utils/response';
+import { apiResponse } from '$lib/utils/response';
 import type { RequestHandler, RequestEvent } from './$types';
 
 export const GET: RequestHandler = async ({ params }: RequestEvent) => {
