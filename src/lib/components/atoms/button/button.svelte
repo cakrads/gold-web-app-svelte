@@ -73,14 +73,14 @@
 		}
 	};
 
-	const classes = twMerge(`
+	$: classes = twMerge(`
     ${config.size[size]}
     ${outline ? config.outline[color] : gradient ? config.gradient['primary'] : config.color[color]}
-    ${config.variant[variant]}
+    ${config.variant[variant]},
     ${className}
   `);
 </script>
 
-<button class={classes}>
+<button on:click on:focus on:mouseover on:mouseenter on:mouseleave class={classes}>
 	<slot />
 </button>
