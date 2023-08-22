@@ -73,7 +73,8 @@
 
 <p
 	class={twMerge(
-		`${typographyClasses[type]} ${colorClasses[color]} ${colorDarkClasses[colorDark]} ${className}`
+		`${typographyClasses[type]} ${colorClasses[color]} ${colorDarkClasses[colorDark]}`,
+		className
 	)}
 >
 	<slot />

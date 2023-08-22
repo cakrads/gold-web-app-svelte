@@ -72,15 +72,20 @@
 			primary: 'text-main-text-light gradient-primary hover:gradient-primary-hover'
 		}
 	};
-
-	$: classes = twMerge(`
-    ${config.size[size]}
-    ${outline ? config.outline[color] : gradient ? config.gradient['primary'] : config.color[color]}
-    ${config.variant[variant]},
-    ${className}
-  `);
 </script>
 
-<button on:click on:focus on:mouseover on:mouseenter on:mouseleave class={classes}>
+<button
+	on:click
+	on:focus
+	on:mouseover
+	on:mouseenter
+	on:mouseleave
+	class={twMerge(
+		`${config.size[size]}
+		${outline ? config.outline[color] : gradient ? config.gradient['primary'] : config.color[color]}
+		${config.variant[variant]}`,
+		className
+	)}
+>
 	<slot />
 </button>

@@ -23,8 +23,8 @@
 		`${widthClasses[width]} 
 		block border rounded-[20px] shadow
 	bg-white  border-primary ${hover ? 'hover:bg-gray-100' : ''} 
-	dark:bg-main-bg-dark dark:border-primary ${hover ? 'dark:hover:bg-black' : ''} 
-		${className}`
+	dark:bg-main-bg-dark dark:border-primary ${hover ? 'dark:hover:bg-black' : ''}`,
+		className
 	)}
 >
 	<slot />

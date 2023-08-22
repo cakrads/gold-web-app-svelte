@@ -4,7 +4,7 @@
 	import CardContent from './card.content.svelte';
 </script>
 
-<Card width="sm">
+<Card width="sm" className="p-5">
 	<CardTitle>Example Default</CardTitle>
 	<CardContent>
 		Here are the biggest enterprise technology acquisitions of 2021 so far, in reverse chronological
@@ -12,7 +12,7 @@
 	</CardContent>
 </Card>
 <br />
-<Card>
+<Card className="p-5">
 	<CardTitle>Example Full and Default</CardTitle>
 	<CardContent>
 		Here are the biggest enterprise technology acquisitions of 2021 so far, in reverse chronological
