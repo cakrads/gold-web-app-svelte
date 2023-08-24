@@ -8,8 +8,6 @@
 	const newArray = new Array<number>(listLength);
 </script>
 
-<div class="animate-pulse">
-	{#each newArray as item}
-		<SkeletonBar id={String(item)} className={twMerge('h-14 mb-[1px] rounded-none', className)} />
-	{/each}
-</div>
+{#each newArray as item}
+	<SkeletonBar id={String(item)} className={twMerge('h-14 mb-[1px] rounded-none', className)} />
+{/each}
