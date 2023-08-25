@@ -1,4 +1,5 @@
 <script lang="ts">
+	/* eslint-disable  @typescript-eslint/no-explicit-any */
 	import { LayerCake, Html, Svg } from 'layercake';
 
 	import Line from '$lib/components/atoms/chart/line.svelte';
@@ -15,8 +16,8 @@
 	export let yMax: number | null = null;
 	export let isAxisXVisible = true;
 	export let isAxisYVisible = true;
-	export let formatXTicks = (d: number) => d;
-	export let formatYTicks = (d: number) => d;
+	export let formatXTicks = (d: any) => d;
+	export let formatYTicks = (d: any) => d;
 	export let numberXTicks = 4;
 	export let numberYTicks = 4;
 

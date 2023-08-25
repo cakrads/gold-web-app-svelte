@@ -1,7 +1,7 @@
 import DailyPriceService from '$lib/services/daily-price';
 import type { DailyPrice } from '$lib/services/daily-price';
 import { apiResponse } from '$lib/utils/response';
-import type { RequestHandler, } from './$types';
+import type { RequestHandler } from './$types';
 
 export const GET: RequestHandler = async () => {
 	try {
@@ -15,6 +15,11 @@ export const GET: RequestHandler = async () => {
 		return apiResponse<DailyPrice[]>(200, dailyPrice, 'Daily Price retrieved successfully', false);
 	} catch (error) {
 		console.error('An error occurred:', error);
-		return apiResponse<DailyPrice[]>(500, [], 'An error occurred while processing the request', true);
+		return apiResponse<DailyPrice[]>(
+			500,
+			[],
+			'An error occurred while processing the request',
+			true
+		);
 	}
 };
