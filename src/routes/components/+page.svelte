@@ -3,6 +3,7 @@
 	import TextExample from '$lib/components/atoms/typography/example.svelte';
 	import ButtonExample from '$lib/components/atoms/button/example.svelte';
 	import CardExample from '$lib/components/atoms/card/example.svelte';
+	import ChartExample from '$lib/components/chart/line-n-area.example.svelte';
 </script>
 
 <section class="p-3">
@@ -16,4 +17,7 @@
 	<hr class="my-3" />
 	<Text type="subtitle" className="my-3">Card</Text>
 	<CardExample />
+	<hr class="my-3" />
+	<Text type="subtitle" className="my-3">Chart</Text>
+	<ChartExample />
 </section>
