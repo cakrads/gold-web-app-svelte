@@ -13,7 +13,7 @@ export const convertDate = (epoch: number, type: 'id-ID' | 'en-US' = 'id-ID'): s
 	const date = convertToDate(epoch);
 	const options = new Map([
 		['id-ID', convertDateIndo],
-		['en-US', convertDateEn],
+		['en-US', convertDateEn]
 	]);
 
 	const selectedFunction = options.get(type);
@@ -53,7 +53,7 @@ export const convertSimpleDate = (epoch: number, type: 'id-ID' | 'en-US' = 'id-I
 	const date = convertToDate(epoch);
 	const options = new Map([
 		['id-ID', convertDateSimpleIndo],
-		['en-US', convertDateSimpleEn],
+		['en-US', convertDateSimpleEn]
 	]);
 
 	const selectedFunction = options.get(type);
@@ -68,7 +68,7 @@ const convertDateSimpleIndo = (date: Date): string => {
 	const options: Intl.DateTimeFormatOptions = {
 		day: 'numeric',
 		month: '2-digit',
-		year: '2-digit',
+		year: '2-digit'
 	};
 
 	return date.toLocaleString('id-ID', options);
@@ -78,7 +78,7 @@ const convertDateSimpleEn = (date: Date): string => {
 	const options: Intl.DateTimeFormatOptions = {
 		month: '2-digit',
 		day: '2-digit',
-		year: '2-digit',
+		year: '2-digit'
 	};
 
 	return date.toLocaleString('en-US', options);
