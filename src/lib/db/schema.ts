@@ -1,5 +1,5 @@
 import type { InferModel } from 'drizzle-orm';
-import { mysqlTable, int, decimal, serial, index, varchar } from 'drizzle-orm/mysql-core';
+import { mysqlTable, int, double, serial, index, varchar } from 'drizzle-orm/mysql-core';
 
 // only have one row, to get the latest info
 export const mainInfo = mysqlTable(
@@ -7,12 +7,12 @@ export const mainInfo = mysqlTable(
 	{
 		id: serial('id').primaryKey().notNull(),
 		date: int('date').unique().notNull(),
-		sellPrice: decimal('sell_price', { precision: 15, scale: 2 }).notNull(),
-		buybackPrice: decimal('buyback_price', { precision: 15, scale: 2 }).notNull(),
-		changePrice: decimal('change_price', { precision: 15, scale: 2 }).notNull(),
-		sellPriceEn: decimal('sell_price_en', { precision: 15, scale: 2 }).notNull(),
-		buybackPriceEn: decimal('buyback_price_en', { precision: 15, scale: 2 }).notNull(),
-		changePriceEn: decimal('change_price_en', { precision: 15, scale: 2 }).notNull()
+		sellPrice: double('sell_price', { precision: 15, scale: 2 }).notNull(),
+		buybackPrice: double('buyback_price', { precision: 15, scale: 2 }).notNull(),
+		changePrice: double('change_price', { precision: 15, scale: 2 }).notNull(),
+		sellPriceEn: double('sell_price_en', { precision: 15, scale: 2 }).notNull(),
+		buybackPriceEn: double('buyback_price_en', { precision: 15, scale: 2 }).notNull(),
+		changePriceEn: double('change_price_en', { precision: 15, scale: 2 }).notNull()
 	},
 	(table) => {
 		return {
@@ -27,12 +27,12 @@ export const dailyPrice = mysqlTable(
 	{
 		id: serial('id').primaryKey().notNull(),
 		date: int('date').unique().notNull(),
-		sellPrice: decimal('sell_price', { precision: 15, scale: 2 }).notNull(),
-		buybackPrice: decimal('buyback_price', { precision: 15, scale: 2 }).notNull(),
-		changePrice: decimal('change_price', { precision: 15, scale: 2 }).notNull(),
-		sellPriceEn: decimal('sell_price_en', { precision: 15, scale: 2 }).notNull(),
-		buybackPriceEn: decimal('buyback_price_en', { precision: 15, scale: 2 }).notNull(),
-		changePriceEn: decimal('change_price_en', { precision: 15, scale: 2 }).notNull()
+		sellPrice: double('sell_price', { precision: 15, scale: 2 }).notNull(),
+		buybackPrice: double('buyback_price', { precision: 15, scale: 2 }).notNull(),
+		changePrice: double('change_price', { precision: 15, scale: 2 }).notNull(),
+		sellPriceEn: double('sell_price_en', { precision: 15, scale: 2 }).notNull(),
+		buybackPriceEn: double('buyback_price_en', { precision: 15, scale: 2 }).notNull(),
+		changePriceEn: double('change_price_en', { precision: 15, scale: 2 }).notNull()
 	},
 	(table) => {
 		return {
@@ -48,8 +48,8 @@ export const dailyInfo = mysqlTable(
 		id: serial('id').primaryKey().notNull(),
 		date: int('date').notNull(),
 		variant: varchar('variant', { length: 256 }).notNull(),
-		price: decimal('price', { precision: 15, scale: 2 }).notNull(),
-		priceEn: decimal('price_en', { precision: 15, scale: 2 }).notNull()
+		price: double('price', { precision: 15, scale: 2 }).notNull(),
+		priceEn: double('price_en', { precision: 15, scale: 2 }).notNull()
 	},
 	(table) => {
 		return {
