@@ -4,7 +4,7 @@
 	import UpdatedPrice from './UpdatedPrice.svelte';
 </script>
 
-<section class="p-5">
+<section class="px-5 py-3">
 	<UpdatedDate />
 	<UpdatedPrice />
 	<PriceInfo />

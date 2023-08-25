@@ -37,7 +37,7 @@
 	});
 </script>
 
-<section class="px-5">
+<section class="px-5 py-3">
 	<Text type="subtitle" color="main" colorDark="primary" className="mb-3">Harga Emas Hari Ini</Text>
 	<Card className="py-6">
 		<div class="flex justify-between mb-2 px-5">
