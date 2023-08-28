@@ -5,7 +5,7 @@ import { mysqlTable, int, double, serial, index, varchar } from 'drizzle-orm/mys
 export const mainInfo = mysqlTable(
 	'main_info',
 	{
-		id: serial('id').primaryKey().notNull().autoincrement(),
+		id: serial('id').primaryKey().notNull(),
 		date: int('date').unique().notNull(),
 		sellPrice: double('sell_price', { precision: 15, scale: 2 }).notNull(),
 		buybackPrice: double('buyback_price', { precision: 15, scale: 2 }).notNull(),
@@ -26,8 +26,8 @@ export const mainInfo = mysqlTable(
 export const dailyPrice = mysqlTable(
 	'daily_price',
 	{
-		id: serial('id').primaryKey().notNull(),
-		date: int('date').unique().notNull().autoincrement(),
+		id: serial('id').primaryKey().notNull().autoincrement(),
+		date: int('date').unique().notNull(),
 		sellPrice: double('sell_price', { precision: 15, scale: 2 }).notNull(),
 		buybackPrice: double('buyback_price', { precision: 15, scale: 2 }).notNull(),
 		changePrice: double('change_price', { precision: 15, scale: 2 }).notNull(),

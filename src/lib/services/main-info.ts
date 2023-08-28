@@ -29,7 +29,7 @@ class MainInfoService {
 		const latestPrice = await db.query.mainInfo.findFirst();
 
 		if (!latestPrice) {
-			throw new Error(`MainInfo was empty`);
+			return {} as MainInfo;
 		}
 
 		return latestPrice;
