@@ -27,3 +27,9 @@ export const formatDollar = (value: number, options?: Intl.NumberFormatOptions):
 		...options
 	}).format(value);
 };
+
+export const rupiahToDollar = (rupiah: number, dollarRate: number) => {
+	const dollarAmount = rupiah / dollarRate;
+	const formattedDollarAmount = dollarAmount.toFixed(2);
+	return parseFloat(formattedDollarAmount);
+};
