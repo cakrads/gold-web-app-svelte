@@ -6,8 +6,7 @@ import type { RequestHandler } from './$types';
 export const GET: RequestHandler = async () => {
 	try {
 		// Get daily price
-		const dailyPrice = DailyPriceService.getDailyPrice();
-		console.log({ dailyPrice });
+		const dailyPrice = await DailyPriceService.getDailyPrice();
 		if (!dailyPrice.length) {
 			return apiResponse<DailyPrice[]>(404, [], 'No daily price found for the given date', true);
 		}

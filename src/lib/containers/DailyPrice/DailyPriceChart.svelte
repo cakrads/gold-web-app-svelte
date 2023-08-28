@@ -32,7 +32,7 @@
 			// Calculate the date before which the data should be considered
 			const cutoffDate = new Date(now.getTime() - interval * 24 * 60 * 60 * 1000);
 			// Filter the data based on the cutoff date
-			filteredData = data.filter((item) => new Date(item.date) >= cutoffDate);
+			filteredData = data.filter((item) => new Date(item.date * 1000) >= cutoffDate);
 		}
 	}
 

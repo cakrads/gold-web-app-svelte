@@ -20,7 +20,7 @@ class MainInfoService {
 	}
 
 	public async updateLastPrice(data: MainInfoCreate): Promise<MainInfo> {
-		await db.update(schema.mainInfo).set(data).where(eq(schema.mainInfo.id, 1));
+		await db.update(schema.mainInfo).set(data).where(eq(schema.mainInfo.id, 0));
 
 		return await this.latestPrice();
 	}

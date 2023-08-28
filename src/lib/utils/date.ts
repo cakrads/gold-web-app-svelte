@@ -49,8 +49,8 @@ const convertDateEn = (date: Date): string => {
 	return date.toLocaleString('en-US', options).replace(' at', ',');
 };
 
-export const convertSimpleDate = (epoch: number, type: 'id-ID' | 'en-US' = 'id-ID'): string => {
-	const date = convertToDate(epoch);
+export const convertSimpleDate = (epochInSecond: number, type: 'id-ID' | 'en-US' = 'id-ID'): string => {
+	const date = convertToDate(epochInSecond);
 	const options = new Map([
 		['id-ID', convertDateSimpleIndo],
 		['en-US', convertDateSimpleEn]
