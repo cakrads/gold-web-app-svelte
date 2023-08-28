@@ -60,7 +60,7 @@ class DailyInfoService {
 		});
 
 		if (!data) {
-			throw new Error(`DailyInfo was empty`);
+			return {} as DailyInfo;
 		}
 
 		return data;
@@ -72,7 +72,7 @@ class DailyInfoService {
 		});
 
 		if (!data) {
-			throw new Error(`DailyInfo was empty`);
+			return [] as DailyInfo[];
 		}
 
 		return data;
