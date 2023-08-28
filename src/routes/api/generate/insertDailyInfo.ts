@@ -3,7 +3,6 @@ import { isSameDate } from './utils';
 
 export async function insertDailyInfo(dailyInfo: DailyInfo[]) {
   const latestData = await DailyInfoService.getLatestData();
-  console.log({ latestData });
 
   if (latestData) {
     if (isSameDate(latestData.date, Date.now())) {

@@ -1,8 +1,9 @@
 import { dailyInfoVariant, type DailyInfo, } from '$lib/services/daily-info';
 import { rupiahToDollar } from '$lib/utils/currency';
 import { extractElementContent, fetchHTML } from './utils';
+import { SOURCE_1 } from '$env/static/private';
 
-const URL = 'https://www.logammulia.com/id/harga-emas-hari-ini';
+const URL = SOURCE_1;
 const SELECTOR: Map<string, string> = new Map([
   ['05_GR', 'body > section.section-padding.n-no-padding-top > div > div:nth-child(3) > table:nth-child(3) > tbody > tr:nth-child(3) > td:nth-child(2)'],
   ['1_GR', 'body > section.section-padding.n-no-padding-top > div > div:nth-child(3) > table:nth-child(3) > tbody > tr:nth-child(4) > td:nth-child(2)'],

@@ -1,13 +1,14 @@
 import type { DailyPrice } from '$lib/services/daily-price';
 import { extractElementContent, fetchHTML } from './utils';
+import { SOURCE_2 } from '$env/static/private';
 
-const URL = 'https://harga-emas.org/';
+const URL = SOURCE_2;
 const SELECTOR: Map<string, string> = new Map([
   ['sellPrice', '#container > div:nth-child(2) > div > table > tbody > tr:nth-child(4) > td:nth-child(9)'],
   ['buybackPrice', '#container > div:nth-child(2) > div > table > tbody > tr:nth-child(4) > td:nth-child(10)'],
   ['sellPriceEn', '#container > div:nth-child(3) > div.col-md-8 > table:nth-child(1) > tbody > tr:nth-child(4) > td:nth-child(2)'],
   ['changePriceEn', '#container > div:nth-child(2) > div > table > tbody > tr:nth-child(4) > td:nth-child(2) > font'],
-  ['currentDollar', '#container > div:nth-child(2) > div > table > tbody > tr:nth-child(4) > td:nth-child(6)'],
+  ['currentDollar', '#container > div:nth-child(3) > div.col-md-8 > table:nth-child(1) > tbody > tr:nth-child(3) > td:nth-child(3)'],
 ]);
 
 interface IScrapDailyPrice {

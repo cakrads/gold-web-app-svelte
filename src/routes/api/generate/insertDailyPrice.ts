@@ -3,7 +3,6 @@ import { isSameDate } from './utils';
 
 export async function insertDailyPrice(dailyPrice: DailyPrice) {
   const latestData = await DailyPriceService.getLatestData();
-  console.log({ latestData });
 
   if (latestData) {
     if (isSameDate(latestData.date, Date.now())) {
@@ -13,6 +12,5 @@ export async function insertDailyPrice(dailyPrice: DailyPrice) {
   }
 
   dailyPrice.changePrice = dailyPrice.sellPrice - (latestData?.sellPrice || 0);
-  console.log({ dailyPrice });
   return DailyPriceService.instert(dailyPrice);
 }
