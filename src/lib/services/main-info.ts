@@ -26,8 +26,8 @@ class MainInfoService {
 		console.log('insert success', { result });
 	}
 
-	public async updateLastPrice(data: MainInfoCreate): Promise<MainInfo> {
-		await db.update(schema.mainInfo).set(data).where(eq(schema.mainInfo.id, 0));
+	public async updateLastPrice(latestId: number, data: MainInfoCreate): Promise<MainInfo> {
+		await db.update(schema.mainInfo).set(data).where(eq(schema.mainInfo.id, latestId));
 
 		return await this.latestPrice();
 	}

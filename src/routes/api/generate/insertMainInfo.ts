@@ -1,10 +1,10 @@
 import MainInfoService, { type MainInfoCreate } from '$lib/services/main-info';
 
 export async function insertMainInfo(mainInfo: MainInfoCreate) {
-	const hasMainInfo = await MainInfoService.latestPrice();
+	const latestData = await MainInfoService.latestPrice();
 
-	if (hasMainInfo.id) {
-		return MainInfoService.updateLastPrice(mainInfo);
+	if (latestData.id) {
+		return MainInfoService.updateLastPrice(latestData.id, mainInfo);
 	} else {
 		return MainInfoService.insert(mainInfo);
 	}
