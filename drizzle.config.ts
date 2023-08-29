@@ -8,5 +8,6 @@ export default {
 	driver: 'mysql2',
 	dbCredentials: {
 		connectionString: process.env.DATABASE_URL
+		// connectionString: process.env.DATABASE_URL_PROD
 	}
 } as Config;
