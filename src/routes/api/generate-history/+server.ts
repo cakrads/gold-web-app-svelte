@@ -17,9 +17,12 @@ export const GET: RequestHandler = async () => {
 			dailyPrice
 		};
 
-		await DailyPriceService.deleteAll();
-		await DailyPriceService.instertMultiple(dailyPrice);
-
+		// Only Generate when the daily-price table empty
+		const hasDailyPrice = await DailyPriceService.getDailyPrice();
+		if (!hasDailyPrice.length) {
+			await DailyPriceService.deleteAll();
+			await DailyPriceService.instertMultiple(dailyPrice);
+		}
 		return apiResponse(200, data, 'Daily Price retrieved successfully', false);
 	} catch (error) {
 		return handleError(error);
