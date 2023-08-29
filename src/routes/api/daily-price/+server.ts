@@ -13,6 +13,7 @@ export const GET: RequestHandler = async () => {
 
 		return apiResponse<DailyPrice[]>(200, dailyPrice, 'Daily Price retrieved successfully', false);
 	} catch (error) {
+		// eslint-disable-next-line no-console
 		console.error('An error occurred:', error);
 		return apiResponse<DailyPrice[]>(
 			500,

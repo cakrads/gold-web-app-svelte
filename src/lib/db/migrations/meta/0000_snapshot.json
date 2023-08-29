@@ -1,261 +1,245 @@
 {
-  "version": "5",
-  "dialect": "mysql",
-  "id": "363bbe73-44e9-4ad1-ade9-b90e79c8ea53",
-  "prevId": "00000000-0000-0000-0000-000000000000",
-  "tables": {
-    "daily_info": {
-      "name": "daily_info",
-      "columns": {
-        "id": {
-          "name": "id",
-          "type": "serial",
-          "primaryKey": false,
-          "notNull": true,
-          "autoincrement": true
-        },
-        "date": {
-          "name": "date",
-          "type": "int",
-          "primaryKey": false,
-          "notNull": true,
-          "autoincrement": false
-        },
-        "variant": {
-          "name": "variant",
-          "type": "varchar(256)",
-          "primaryKey": false,
-          "notNull": true,
-          "autoincrement": false
-        },
-        "price": {
-          "name": "price",
-          "type": "double(15,2)",
-          "primaryKey": false,
-          "notNull": true,
-          "autoincrement": false
-        },
-        "price_en": {
-          "name": "price_en",
-          "type": "double(15,2)",
-          "primaryKey": false,
-          "notNull": true,
-          "autoincrement": false
-        }
-      },
-      "indexes": {
-        "date_idx": {
-          "name": "date_idx",
-          "columns": [
-            "date"
-          ],
-          "isUnique": false
-        }
-      },
-      "foreignKeys": {},
-      "compositePrimaryKeys": {
-        "daily_info_id": {
-          "name": "daily_info_id",
-          "columns": [
-            "id"
-          ]
-        }
-      },
-      "uniqueConstraints": {}
-    },
-    "daily_price": {
-      "name": "daily_price",
-      "columns": {
-        "id": {
-          "name": "id",
-          "type": "serial",
-          "primaryKey": false,
-          "notNull": true,
-          "autoincrement": true
-        },
-        "date": {
-          "name": "date",
-          "type": "int",
-          "primaryKey": false,
-          "notNull": true,
-          "autoincrement": false
-        },
-        "sell_price": {
-          "name": "sell_price",
-          "type": "double(15,2)",
-          "primaryKey": false,
-          "notNull": true,
-          "autoincrement": false
-        },
-        "buyback_price": {
-          "name": "buyback_price",
-          "type": "double(15,2)",
-          "primaryKey": false,
-          "notNull": true,
-          "autoincrement": false
-        },
-        "change_price": {
-          "name": "change_price",
-          "type": "double(15,2)",
-          "primaryKey": false,
-          "notNull": true,
-          "autoincrement": false
-        },
-        "dollar_to_rupiah": {
-          "name": "dollar_to_rupiah",
-          "type": "double(15,2)",
-          "primaryKey": false,
-          "notNull": true,
-          "autoincrement": false
-        },
-        "sell_price_en": {
-          "name": "sell_price_en",
-          "type": "double(15,2)",
-          "primaryKey": false,
-          "notNull": true,
-          "autoincrement": false
-        },
-        "buyback_price_en": {
-          "name": "buyback_price_en",
-          "type": "double(15,2)",
-          "primaryKey": false,
-          "notNull": true,
-          "autoincrement": false
-        },
-        "change_price_en": {
-          "name": "change_price_en",
-          "type": "double(15,2)",
-          "primaryKey": false,
-          "notNull": true,
-          "autoincrement": false
-        }
-      },
-      "indexes": {
-        "date_idx": {
-          "name": "date_idx",
-          "columns": [
-            "date"
-          ],
-          "isUnique": false
-        }
-      },
-      "foreignKeys": {},
-      "compositePrimaryKeys": {
-        "daily_price_id": {
-          "name": "daily_price_id",
-          "columns": [
-            "id"
-          ]
-        }
-      },
-      "uniqueConstraints": {
-        "daily_price_date_unique": {
-          "name": "daily_price_date_unique",
-          "columns": [
-            "date"
-          ]
-        }
-      }
-    },
-    "main_info": {
-      "name": "main_info",
-      "columns": {
-        "id": {
-          "name": "id",
-          "type": "serial",
-          "primaryKey": false,
-          "notNull": true,
-          "autoincrement": true
-        },
-        "date": {
-          "name": "date",
-          "type": "int",
-          "primaryKey": false,
-          "notNull": true,
-          "autoincrement": false
-        },
-        "sell_price": {
-          "name": "sell_price",
-          "type": "double(15,2)",
-          "primaryKey": false,
-          "notNull": true,
-          "autoincrement": false
-        },
-        "buyback_price": {
-          "name": "buyback_price",
-          "type": "double(15,2)",
-          "primaryKey": false,
-          "notNull": true,
-          "autoincrement": false
-        },
-        "change_price": {
-          "name": "change_price",
-          "type": "double(15,2)",
-          "primaryKey": false,
-          "notNull": true,
-          "autoincrement": false
-        },
-        "dollar_to_rupiah": {
-          "name": "dollar_to_rupiah",
-          "type": "double(15,2)",
-          "primaryKey": false,
-          "notNull": true,
-          "autoincrement": false
-        },
-        "sell_price_en": {
-          "name": "sell_price_en",
-          "type": "double(15,2)",
-          "primaryKey": false,
-          "notNull": true,
-          "autoincrement": false
-        },
-        "buyback_price_en": {
-          "name": "buyback_price_en",
-          "type": "double(15,2)",
-          "primaryKey": false,
-          "notNull": true,
-          "autoincrement": false
-        },
-        "change_price_en": {
-          "name": "change_price_en",
-          "type": "double(15,2)",
-          "primaryKey": false,
-          "notNull": true,
-          "autoincrement": false
-        }
-      },
-      "indexes": {
-        "date_idx": {
-          "name": "date_idx",
-          "columns": [
-            "date"
-          ],
-          "isUnique": false
-        }
-      },
-      "foreignKeys": {},
-      "compositePrimaryKeys": {
-        "main_info_id": {
-          "name": "main_info_id",
-          "columns": [
-            "id"
-          ]
-        }
-      },
-      "uniqueConstraints": {
-        "main_info_date_unique": {
-          "name": "main_info_date_unique",
-          "columns": [
-            "date"
-          ]
-        }
-      }
-    }
-  },
-  "schemas": {},
-  "_meta": {
-    "schemas": {},
-    "tables": {},
-    "columns": {}
-  }
+	"version": "5",
+	"dialect": "mysql",
+	"id": "363bbe73-44e9-4ad1-ade9-b90e79c8ea53",
+	"prevId": "00000000-0000-0000-0000-000000000000",
+	"tables": {
+		"daily_info": {
+			"name": "daily_info",
+			"columns": {
+				"id": {
+					"name": "id",
+					"type": "serial",
+					"primaryKey": false,
+					"notNull": true,
+					"autoincrement": true
+				},
+				"date": {
+					"name": "date",
+					"type": "int",
+					"primaryKey": false,
+					"notNull": true,
+					"autoincrement": false
+				},
+				"variant": {
+					"name": "variant",
+					"type": "varchar(256)",
+					"primaryKey": false,
+					"notNull": true,
+					"autoincrement": false
+				},
+				"price": {
+					"name": "price",
+					"type": "double(15,2)",
+					"primaryKey": false,
+					"notNull": true,
+					"autoincrement": false
+				},
+				"price_en": {
+					"name": "price_en",
+					"type": "double(15,2)",
+					"primaryKey": false,
+					"notNull": true,
+					"autoincrement": false
+				}
+			},
+			"indexes": {
+				"date_idx": {
+					"name": "date_idx",
+					"columns": ["date"],
+					"isUnique": false
+				}
+			},
+			"foreignKeys": {},
+			"compositePrimaryKeys": {
+				"daily_info_id": {
+					"name": "daily_info_id",
+					"columns": ["id"]
+				}
+			},
+			"uniqueConstraints": {}
+		},
+		"daily_price": {
+			"name": "daily_price",
+			"columns": {
+				"id": {
+					"name": "id",
+					"type": "serial",
+					"primaryKey": false,
+					"notNull": true,
+					"autoincrement": true
+				},
+				"date": {
+					"name": "date",
+					"type": "int",
+					"primaryKey": false,
+					"notNull": true,
+					"autoincrement": false
+				},
+				"sell_price": {
+					"name": "sell_price",
+					"type": "double(15,2)",
+					"primaryKey": false,
+					"notNull": true,
+					"autoincrement": false
+				},
+				"buyback_price": {
+					"name": "buyback_price",
+					"type": "double(15,2)",
+					"primaryKey": false,
+					"notNull": true,
+					"autoincrement": false
+				},
+				"change_price": {
+					"name": "change_price",
+					"type": "double(15,2)",
+					"primaryKey": false,
+					"notNull": true,
+					"autoincrement": false
+				},
+				"dollar_to_rupiah": {
+					"name": "dollar_to_rupiah",
+					"type": "double(15,2)",
+					"primaryKey": false,
+					"notNull": true,
+					"autoincrement": false
+				},
+				"sell_price_en": {
+					"name": "sell_price_en",
+					"type": "double(15,2)",
+					"primaryKey": false,
+					"notNull": true,
+					"autoincrement": false
+				},
+				"buyback_price_en": {
+					"name": "buyback_price_en",
+					"type": "double(15,2)",
+					"primaryKey": false,
+					"notNull": true,
+					"autoincrement": false
+				},
+				"change_price_en": {
+					"name": "change_price_en",
+					"type": "double(15,2)",
+					"primaryKey": false,
+					"notNull": true,
+					"autoincrement": false
+				}
+			},
+			"indexes": {
+				"date_idx": {
+					"name": "date_idx",
+					"columns": ["date"],
+					"isUnique": false
+				}
+			},
+			"foreignKeys": {},
+			"compositePrimaryKeys": {
+				"daily_price_id": {
+					"name": "daily_price_id",
+					"columns": ["id"]
+				}
+			},
+			"uniqueConstraints": {
+				"daily_price_date_unique": {
+					"name": "daily_price_date_unique",
+					"columns": ["date"]
+				}
+			}
+		},
+		"main_info": {
+			"name": "main_info",
+			"columns": {
+				"id": {
+					"name": "id",
+					"type": "serial",
+					"primaryKey": false,
+					"notNull": true,
+					"autoincrement": true
+				},
+				"date": {
+					"name": "date",
+					"type": "int",
+					"primaryKey": false,
+					"notNull": true,
+					"autoincrement": false
+				},
+				"sell_price": {
+					"name": "sell_price",
+					"type": "double(15,2)",
+					"primaryKey": false,
+					"notNull": true,
+					"autoincrement": false
+				},
+				"buyback_price": {
+					"name": "buyback_price",
+					"type": "double(15,2)",
+					"primaryKey": false,
+					"notNull": true,
+					"autoincrement": false
+				},
+				"change_price": {
+					"name": "change_price",
+					"type": "double(15,2)",
+					"primaryKey": false,
+					"notNull": true,
+					"autoincrement": false
+				},
+				"dollar_to_rupiah": {
+					"name": "dollar_to_rupiah",
+					"type": "double(15,2)",
+					"primaryKey": false,
+					"notNull": true,
+					"autoincrement": false
+				},
+				"sell_price_en": {
+					"name": "sell_price_en",
+					"type": "double(15,2)",
+					"primaryKey": false,
+					"notNull": true,
+					"autoincrement": false
+				},
+				"buyback_price_en": {
+					"name": "buyback_price_en",
+					"type": "double(15,2)",
+					"primaryKey": false,
+					"notNull": true,
+					"autoincrement": false
+				},
+				"change_price_en": {
+					"name": "change_price_en",
+					"type": "double(15,2)",
+					"primaryKey": false,
+					"notNull": true,
+					"autoincrement": false
+				}
+			},
+			"indexes": {
+				"date_idx": {
+					"name": "date_idx",
+					"columns": ["date"],
+					"isUnique": false
+				}
+			},
+			"foreignKeys": {},
+			"compositePrimaryKeys": {
+				"main_info_id": {
+					"name": "main_info_id",
+					"columns": ["id"]
+				}
+			},
+			"uniqueConstraints": {
+				"main_info_date_unique": {
+					"name": "main_info_date_unique",
+					"columns": ["date"]
+				}
+			}
+		}
+	},
+	"schemas": {},
+	"_meta": {
+		"schemas": {},
+		"tables": {},
+		"columns": {}
+	}
 }

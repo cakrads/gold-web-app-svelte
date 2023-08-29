@@ -20,6 +20,7 @@ export const GET: RequestHandler = async ({ params }: RequestEvent) => {
 
 		return apiResponse<DailyInfo[]>(200, dailyInfo, 'Daily info retrieved successfully', false);
 	} catch (error) {
+		// eslint-disable-next-line no-console
 		console.error('An error occurred:', error);
 		return apiResponse<DailyInfo[]>(
 			500,

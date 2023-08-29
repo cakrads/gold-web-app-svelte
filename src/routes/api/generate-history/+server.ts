@@ -5,36 +5,35 @@ import DATA_ANTAM from './data-antam.json';
 import DATA_GOLD_EN from './data-gold-en.json';
 import { combineArrays, convertAntam, convertGoldEn } from './utils';
 
-
 export const GET: RequestHandler = async () => {
-  try {
+	try {
+		const historyAntam = convertAntam(DATA_ANTAM.data);
+		const historyGoldEn = convertGoldEn(DATA_GOLD_EN.data);
+		const dailyPrice = combineArrays(historyAntam, historyGoldEn);
 
-    const historyAntam = convertAntam(DATA_ANTAM.data);
-    const historyGoldEn = convertGoldEn(DATA_GOLD_EN.data);
-    const dailyPrice = combineArrays(historyAntam, historyGoldEn);
+		const data = {
+			historyAntam,
+			historyGoldEn,
+			dailyPrice
+		};
 
-    const data = {
-      historyAntam,
-      historyGoldEn,
-      dailyPrice,
-    };
+		await DailyPriceService.deleteAll();
+		await DailyPriceService.instertMultiple(dailyPrice);
 
-    await DailyPriceService.deleteAll();
-    await DailyPriceService.instertMultiple(dailyPrice);
-
-    return apiResponse(200, data, 'Daily Price retrieved successfully', false);
-  } catch (error) {
-    return handleError(error);
-  }
+		return apiResponse(200, data, 'Daily Price retrieved successfully', false);
+	} catch (error) {
+		return handleError(error);
+	}
 };
 
 function handleError(error: unknown) {
-  console.error('An error occurred:', error);
+	// eslint-disable-next-line no-console
+	console.error('An error occurred:', error);
 
-  return apiResponse(
-    500,
-    [],
-    String(error) || 'An error occurred while processing the request',
-    true
-  );
+	return apiResponse(
+		500,
+		[],
+		String(error) || 'An error occurred while processing the request',
+		true
+	);
 }

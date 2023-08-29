@@ -28,6 +28,7 @@ module.exports = {
 		}
 	],
 	rules: {
+		'no-console': 'error',
 		'no-unused-vars': 'off',
 		semi: 'error',
 		quotes: ['error', 'single', { allowTemplateLiterals: true }]

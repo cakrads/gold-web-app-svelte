@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 import { db, schema } from '$lib/db';
 import { desc, eq } from 'drizzle-orm';
 
@@ -32,9 +33,7 @@ class DailyPriceService {
 	}
 
 	public async updateById(id: number, data: DailyPriceCreate): Promise<void> {
-		const result = await db.update(schema.dailyPrice)
-			.set(data)
-			.where(eq(schema.dailyPrice.id, id));
+		const result = await db.update(schema.dailyPrice).set(data).where(eq(schema.dailyPrice.id, id));
 
 		console.log({ result });
 	}
@@ -45,8 +44,11 @@ class DailyPriceService {
 	}
 
 	public async getLatestData(): Promise<DailyPrice | undefined> {
-		const data = await db.select().from(schema.dailyPrice)
-			.orderBy(desc(schema.dailyPrice.id)).execute();
+		const data = await db
+			.select()
+			.from(schema.dailyPrice)
+			.orderBy(desc(schema.dailyPrice.id))
+			.execute();
 
 		if (!data) {
 			return {} as DailyPrice;
@@ -58,7 +60,6 @@ class DailyPriceService {
 	public async deleteAll() {
 		return await db.delete(schema.dailyPrice);
 	}
-
 }
 
 const singletonDailyPriceService = DailyPriceService.getInstance();

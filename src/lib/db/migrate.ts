@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 import { migrate } from 'drizzle-orm/planetscale-serverless/migrator';
 import { connect } from '@planetscale/database';
 import { drizzle } from 'drizzle-orm/planetscale-serverless';

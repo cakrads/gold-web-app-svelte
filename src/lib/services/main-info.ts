@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 import { db, schema } from '$lib/db';
 import { desc, eq } from 'drizzle-orm';
 
@@ -32,8 +33,11 @@ class MainInfoService {
 	}
 
 	public async latestPrice(): Promise<MainInfo> {
-		const latestPrice = await db.select().from(schema.mainInfo)
-			.orderBy(desc(schema.mainInfo.id)).execute();
+		const latestPrice = await db
+			.select()
+			.from(schema.mainInfo)
+			.orderBy(desc(schema.mainInfo.id))
+			.execute();
 
 		if (!latestPrice.length) {
 			return {} as MainInfo;

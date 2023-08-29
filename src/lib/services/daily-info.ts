@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 import { db, schema } from '$lib/db';
 import { desc, eq } from 'drizzle-orm';
 
@@ -16,7 +17,7 @@ export const dailyInfoVariant = {
 	'100_GR': '100 gr',
 	'250_GR': '250 gr',
 	'500_GR': '500 gr',
-	'1000_GR': '1000 gr (1kg)',
+	'1000_GR': '1000 gr (1kg)'
 };
 
 class DailyInfoService {
@@ -47,9 +48,7 @@ class DailyInfoService {
 	}
 
 	public async updateById(id: number, data: DailyInfoCreate): Promise<void> {
-		const result = await db.update(schema.dailyInfo)
-			.set(data)
-			.where(eq(schema.dailyInfo.id, id));
+		const result = await db.update(schema.dailyInfo).set(data).where(eq(schema.dailyInfo.id, id));
 
 		console.log('update success', { result });
 	}
@@ -79,8 +78,11 @@ class DailyInfoService {
 	}
 
 	public async getLatestData(): Promise<DailyInfo | undefined> {
-		const data = await db.select().from(schema.dailyInfo)
-			.orderBy(desc(schema.dailyInfo.id)).execute();
+		const data = await db
+			.select()
+			.from(schema.dailyInfo)
+			.orderBy(desc(schema.dailyInfo.id))
+			.execute();
 
 		if (!data) {
 			return {} as DailyInfo;
@@ -90,8 +92,7 @@ class DailyInfoService {
 	}
 
 	public async deleteByDate(date: number) {
-		const result = await db.delete(schema.dailyInfo)
-			.where(eq(schema.dailyInfo.date, date));
+		const result = await db.delete(schema.dailyInfo).where(eq(schema.dailyInfo.date, date));
 
 		console.log('delete success', { result });
 	}
