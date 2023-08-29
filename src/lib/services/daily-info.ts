@@ -1,5 +1,5 @@
 import { db, schema } from '$lib/db';
-import { eq } from 'drizzle-orm';
+import { desc, eq } from 'drizzle-orm';
 
 export type DailyInfo = schema.DailyInfo;
 export type DailyInfoCreate = schema.DailyInfoCreate;
@@ -79,8 +79,14 @@ class DailyInfoService {
 	}
 
 	public async getLatestData(): Promise<DailyInfo | undefined> {
-		const data = await db.query.dailyInfo.findFirst();
-		return data;
+		const data = await db.select().from(schema.dailyInfo)
+			.orderBy(desc(schema.dailyInfo.id)).execute();
+
+		if (!data) {
+			return {} as DailyInfo;
+		}
+
+		return data[0];
 	}
 
 	public async deleteByDate(date: number) {

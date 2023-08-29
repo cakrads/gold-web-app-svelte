@@ -1,5 +1,5 @@
 import { db, schema } from '$lib/db';
-import { eq } from 'drizzle-orm';
+import { desc, eq } from 'drizzle-orm';
 
 export type MainInfo = schema.MainInfo;
 export type MainInfoCreate = schema.MainInfoCreate;
@@ -19,6 +19,12 @@ class MainInfoService {
 		return MainInfoService.instance;
 	}
 
+	public async insert(data: MainInfoCreate) {
+		const result = await db.insert(schema.mainInfo).values(data);
+
+		console.log('insert success', { result });
+	}
+
 	public async updateLastPrice(data: MainInfoCreate): Promise<MainInfo> {
 		await db.update(schema.mainInfo).set(data).where(eq(schema.mainInfo.id, 0));
 
@@ -26,13 +32,14 @@ class MainInfoService {
 	}
 
 	public async latestPrice(): Promise<MainInfo> {
-		const latestPrice = await db.query.mainInfo.findFirst();
+		const latestPrice = await db.select().from(schema.mainInfo)
+			.orderBy(desc(schema.mainInfo.id)).execute();
 
-		if (!latestPrice) {
+		if (!latestPrice.length) {
 			return {} as MainInfo;
 		}
 
-		return latestPrice;
+		return latestPrice[0];
 	}
 }
 

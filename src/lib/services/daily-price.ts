@@ -1,5 +1,5 @@
 import { db, schema } from '$lib/db';
-import { eq } from 'drizzle-orm';
+import { desc, eq } from 'drizzle-orm';
 
 export type DailyPrice = schema.DailyPrice;
 export type DailyPriceCreate = schema.DailyPriceCreate;
@@ -22,13 +22,13 @@ class DailyPriceService {
 	public async instert(data: DailyPriceCreate): Promise<void> {
 		const result = await db.insert(schema.dailyPrice).values(data);
 
-		console.log({ result });
+		console.log('insert success', { result });
 	}
 
 	public async instertMultiple(data: DailyPriceCreate[]): Promise<void> {
 		const result = await db.insert(schema.dailyPrice).values(data);
 
-		console.log({ result });
+		console.log('insert multiple success', { result });
 	}
 
 	public async updateById(id: number, data: DailyPriceCreate): Promise<void> {
@@ -45,8 +45,14 @@ class DailyPriceService {
 	}
 
 	public async getLatestData(): Promise<DailyPrice | undefined> {
-		const data = await db.query.dailyPrice.findFirst();
-		return data;
+		const data = await db.select().from(schema.dailyPrice)
+			.orderBy(desc(schema.dailyPrice.id)).execute();
+
+		if (!data) {
+			return {} as DailyPrice;
+		}
+
+		return data[0];
 	}
 
 	public async deleteAll() {

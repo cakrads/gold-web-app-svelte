@@ -1,13 +1,11 @@
-import DailyInfoService, { type DailyInfo } from '$lib/services/daily-info';
+import DailyInfoService, { type DailyInfoCreate } from '$lib/services/daily-info';
 import { isSameDate } from './utils';
 
-export async function insertDailyInfo(dailyInfo: DailyInfo[]) {
+export async function insertDailyInfo(dailyInfo: DailyInfoCreate[]) {
   const latestData = await DailyInfoService.getLatestData();
 
-  if (latestData) {
-    if (isSameDate(latestData.date, Date.now())) {
-      DailyInfoService.deleteByDate(latestData.date);
-    }
+  if (latestData && isSameDate(latestData.date, Date.now())) {
+    DailyInfoService.deleteByDate(latestData.date);
   }
 
   return DailyInfoService.instertMultiple(dailyInfo);

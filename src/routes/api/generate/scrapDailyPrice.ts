@@ -1,4 +1,4 @@
-import type { DailyPrice } from '$lib/services/daily-price';
+import type { DailyPriceCreate } from '$lib/services/daily-price';
 import { extractElementContent, fetchHTML } from './utils';
 import { SOURCE_2 } from '$env/static/private';
 
@@ -13,14 +13,14 @@ const SELECTOR: Map<string, string> = new Map([
 
 interface IScrapDailyPrice {
   status: boolean;
-  data: DailyPrice;
+  data: DailyPriceCreate;
 }
 
 interface IParams {
   date: number;
 }
 
-type IScrappedData = Omit<DailyPrice, 'id' | 'date'>;
+type IScrappedData = Omit<DailyPriceCreate, 'id' | 'date'>;
 
 export async function scrapDailyPrice({ date }: IParams): Promise<IScrapDailyPrice> {
 
@@ -35,10 +35,11 @@ export async function scrapDailyPrice({ date }: IParams): Promise<IScrapDailyPri
   scrappedData.changePrice = 0;
   scrappedData.changePriceEn = extractContent(html, 'changePriceEn');
 
+  console.log({ scrappedData });
+
   return {
     status: true,
     data: {
-      id: 0,
       date,
       ...scrappedData
     },
@@ -46,9 +47,13 @@ export async function scrapDailyPrice({ date }: IParams): Promise<IScrapDailyPri
 }
 
 function extractContent(html: string, selector: string) {
-  const getValue = extractElementContent(html, SELECTOR.get(selector) ?? '');
-  console.log({ selector, getValue });
+  let getValue = extractElementContent(html, SELECTOR.get(selector) ?? '');
+
+  if (getValue?.includes('(')) {
+    getValue = getValue.split('(')[0].replace(' ', '');
+  }
   const price = Number(String(getValue).replaceAll('.', '').replaceAll(',', '.'));
+
   return price;
 }
 

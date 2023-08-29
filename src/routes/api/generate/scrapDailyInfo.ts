@@ -1,4 +1,4 @@
-import { dailyInfoVariant, type DailyInfo, } from '$lib/services/daily-info';
+import { dailyInfoVariant, type DailyInfoCreate, } from '$lib/services/daily-info';
 import { rupiahToDollar } from '$lib/utils/currency';
 import { extractElementContent, fetchHTML } from './utils';
 import { SOURCE_1 } from '$env/static/private';
@@ -21,7 +21,7 @@ const SELECTOR: Map<string, string> = new Map([
 
 interface IScrapDailyInfo {
   status: boolean;
-  data: DailyInfo[];
+  data: DailyInfoCreate[];
 }
 
 interface IParams {
@@ -44,7 +44,7 @@ export async function scrapDailyInfo({ date, dollarToRupiah }: IParams): Promise
       variant: variantValues[index],
       price,
       priceEn: rupiahToDollar(price, dollarToRupiah),
-    } as DailyInfo;
+    } as DailyInfoCreate;
   });
 
   return {
